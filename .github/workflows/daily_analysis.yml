@@ -41,7 +41,16 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
-      
+
+      # ← 在这里插入 ↓↓↓
+
+      - name: 清除缓存
+        run: |
+          rm -rf data/ reports/ cache/
+          echo "✅ 缓存已清除"          
+
+      # ← 插入结束 ↑↑↑
+
       - name: 安装依赖
         run: |
           pip install --upgrade pip
